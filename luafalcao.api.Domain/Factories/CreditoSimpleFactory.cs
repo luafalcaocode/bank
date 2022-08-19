@@ -8,12 +8,12 @@ namespace luafalcao.api.Domain.Factories
 {
     public class CreditoSimpleFactory
     {
-        public static Credito Criar(TipoCreditoEnum tipo, Credito credito)
+        public static Credito Criar(TipoCreditoEnum tipo)
         {
             switch(tipo)
             {
                 case TipoCreditoEnum.Consignado:
-                    return new CreditoConsignado(credito.Valor, credito.Tipo, credito.QuantidadeParcelas, credito.DataPrimeiroVencimento);
+                    return new CreditoConsignado();
                 case TipoCreditoEnum.Direto:
                     return new CreditoDireto();
                 case TipoCreditoEnum.Imobiliario:
