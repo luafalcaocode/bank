@@ -24,6 +24,7 @@ namespace luafalcao.api.Web
             services.ConfigureCors();
             services.ConfigureMapper();
             services.ConfigureFacades();
+            services.ConfigureSqlContext(Configuration);
 
             services.Configure<FormOptions>(option =>
             {
