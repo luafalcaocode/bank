@@ -1,4 +1,5 @@
 ﻿using luafalcao.api.Domain.DTOs;
+using luafalcao.api.Domain.Factories;
 using luafalcao.api.Domain.Models;
 using luafalcao.api.Shared.Adapters;
 using luafalcao.api.Shared.Mapper.Enums;
@@ -25,7 +26,7 @@ namespace luafalcao.api.Domain.Facade
 
             try
             {
-                this.credito = this.mapper.MapType<CreditoDto, Credito>(creditoDto);
+                this.credito = CreditoSimpleFactory.Criar(creditoDto.Tipo, creditoDto);
 
                 var resultado = this.credito.Contratar();
             
