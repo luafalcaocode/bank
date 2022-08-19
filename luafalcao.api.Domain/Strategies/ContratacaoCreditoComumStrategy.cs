@@ -28,9 +28,19 @@ namespace luafalcao.api.Domain.Strategies
             {
                 Success = true,
                 StatusCredito = "Aprovado",
-                ValorDoJuros = (credito.Valor * credito.CalcularTaxaJuros()).ToString("C", new CultureInfo("pt-BR")),
-                ValorTotalComJuros = (credito.Valor + (credito.Valor * credito.CalcularTaxaJuros())).ToString("C", new CultureInfo("pt-BR"))
+                ValorDoJuros = CalcularValorDoJuros(credito).ToString("C", new CultureInfo("pt-BR")),
+                ValorTotalComJuros = CalcularValorTotalComJuros(credito).ToString("C", new CultureInfo("pt-BR"))
             };           
+        }
+
+        private double CalcularValorDoJuros(Credito credito)
+        {
+            return (credito.Valor * credito.CalcularTaxaJuros());
+        }
+
+        private double CalcularValorTotalComJuros(Credito credito)
+        {
+            return (credito.Valor + (credito.Valor * credito.CalcularTaxaJuros()));
         }
     }
 }

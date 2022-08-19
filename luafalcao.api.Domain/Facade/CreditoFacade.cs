@@ -13,11 +13,9 @@ namespace luafalcao.api.Domain.Facade
     {
         private Credito credito;
 
-        private IMapperManager mapper;
-
         public CreditoFacade()
         {
-            this.mapper = MapperManagerFactory.Create(MapperTypeEnum.AutoMapper);
+       
         }
 
         public Message<ResultadoCreditoDto> Contratar(CreditoDto creditoDto)
