@@ -1,5 +1,4 @@
 ﻿using luafalcao.api.Domain.DTOs;
-using luafalcao.api.Domain.Enums;
 using luafalcao.api.Domain.Models;
 using luafalcao.api.Shared.Adapters;
 using luafalcao.api.Shared.Mapper.Enums;

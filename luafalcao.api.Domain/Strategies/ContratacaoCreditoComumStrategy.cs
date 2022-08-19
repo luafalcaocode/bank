@@ -3,6 +3,7 @@ using luafalcao.api.Domain.Enums;
 using luafalcao.api.Domain.Models;
 using luafalcao.api.Domain.Validations;
 using System;
+using System.Globalization;
 using System.Linq;
 
 namespace luafalcao.api.Domain.Strategies
@@ -27,8 +28,8 @@ namespace luafalcao.api.Domain.Strategies
             {
                 Success = true,
                 StatusCredito = "Aprovado",
-                ValorDoJuros = credito.Valor * credito.CalcularTaxaJuros(),
-                ValorTotalComJuros = credito.Valor + (credito.Valor * credito.CalcularTaxaJuros())
+                ValorDoJuros = (credito.Valor * credito.CalcularTaxaJuros()).ToString("C", new CultureInfo("pt-BR")),
+                ValorTotalComJuros = (credito.Valor + (credito.Valor * credito.CalcularTaxaJuros())).ToString("C", new CultureInfo("pt-BR"))
             };           
         }
     }

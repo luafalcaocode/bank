@@ -4,7 +4,7 @@ using System.Text;
 
 namespace luafalcao.api.Domain.DTOs
 {
-    public class BaseDto
+    public abstract class BaseDto
     {
     }
 }
