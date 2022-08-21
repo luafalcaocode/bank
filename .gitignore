@@ -9,4 +9,9 @@
 /luafalcao.api.Shared/obj
 /luafalcao.api.Web/bin/Debug/netcoreapp3.1
 /luafalcao.api.Web/obj
+
 /.vs/luafalcao_api/DesignTimeBuild
+
+/luafalcao.api.Persistence/bin/Debug/netcoreapp3.1
+/luafalcao.api.Persistence/obj
+

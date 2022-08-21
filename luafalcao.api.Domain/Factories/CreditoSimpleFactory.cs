@@ -9,17 +9,17 @@ namespace luafalcao.api.Domain.Factories
 {
     public class CreditoSimpleFactory
     {
-        public static Credito Criar(TipoCreditoEnum tipo, BaseDto dataTransferObject = null)
+        public static Credito ObterInstancia(TipoCreditoEnum tipo, BaseDto dataTransferObject = null)
         {
             IMapperManager mapper = MapperManagerFactory.Create(MapperTypeEnum.AutoMapper);
 
             if (dataTransferObject == null)
-                return Criar(tipo);
+                return ObterInstancia(tipo);
             else
-                return Criar(mapper, tipo, dataTransferObject);                
+                return ObterInstanciaMapeada(mapper, tipo, dataTransferObject);                
         }
 
-        private static Credito Criar(IMapperManager mapper, TipoCreditoEnum tipo, BaseDto dataTransferObject = null)
+        private static Credito ObterInstanciaMapeada(IMapperManager mapper, TipoCreditoEnum tipo, BaseDto dataTransferObject = null)
         {
             switch(tipo)
             {
@@ -38,7 +38,7 @@ namespace luafalcao.api.Domain.Factories
             return null;
         }
 
-        private static Credito Criar(TipoCreditoEnum tipo)
+        private static Credito ObterInstancia(TipoCreditoEnum tipo)
         {
             switch(tipo)
             {
