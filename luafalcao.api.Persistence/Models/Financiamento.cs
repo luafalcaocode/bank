@@ -9,7 +9,6 @@ namespace luafalcao.api.Persistence.Models
     {
         [Column("FinanciamentoId")]
         public int Id { get; set; }
-        public string TipoFinanciamento { get; set; }
         public double ValorTotal { get; set; }
         public DateTime DataUltimoVencimento { get; set; }
 
@@ -19,5 +18,10 @@ namespace luafalcao.api.Persistence.Models
         public Cliente Cliente { get; set; }
 
         ICollection<Parcela> Parcelas { get; set; }
+
+
+        [ForeignKey(nameof(FinanciamentoTipo))]
+        public int FinanciamentoTipoId { get; set; }
+        public FinanciamentoTipo FinanciamentoTipo { get; set; }
     }
 }

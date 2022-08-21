@@ -1,5 +1,7 @@
 ﻿using luafalcao.api.Domain.Facade;
+using luafalcao.api.Domain.Services;
 using luafalcao.api.Persistence.Models;
+using luafalcao.api.Persistence.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -48,11 +50,20 @@ namespace luafalcao.api.Web.Extensions
         public static void ConfigureFacades(this IServiceCollection services)
         {
             services.AddScoped<ICreditoFacade, CreditoFacade>();
+            services.AddScoped<IClienteFacade, ClienteFacade>();
+        }
+
+        public static void ConfigureDomains(this IServiceCollection services)
+        {
+            services.AddScoped<IClienteService, ClienteService>();
         }
 
         public static void ConfigureSqlContext(this IServiceCollection services, IConfiguration configuration) =>
             services.AddDbContext<RepositoryContext>(options => 
             options.UseSqlServer(configuration.GetConnectionString("SqlServerConnection"), b => 
              b.MigrationsAssembly("luafalcao.api.Persistence")));
+
+        public static void ConfigureRepositoryManager(this IServiceCollection services) =>
+            services.AddScoped<IRepositoryManager, RepositoryManager>();
     }
 }

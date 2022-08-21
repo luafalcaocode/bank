@@ -11,8 +11,8 @@ namespace luafalcao.api.Persistence.Models
         public int Id { get; set; }
         public int NumeroParcela { get; set; }
         public double ValorParcela { get; set; }
-        public DateTime DataVencimento { get; set; }
-        public DateTime DataPagamento { get; set; }
+        public DateTime? DataVencimento { get; set; }
+        public DateTime? DataPagamento { get; set; }
 
         [ForeignKey(nameof(Financiamento))]
         public int FinanciamentoId { get; set; }
